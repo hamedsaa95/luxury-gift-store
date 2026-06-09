@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  # 1. Custom Full-Stack App Server
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aura-luxury-vouchers
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - REDIS_URL=redis://cache:6379
+      - JWT_SECRET=aura_luxury_enterprise_key_9901
+    depends_on:
+      - cache
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+  # 2. Redis API Cache Layer
+  cache:
+    image: redis:7-alpine
+    container_name: aura-luxury-redis-cache
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+
+volumes:
+  redis_data:

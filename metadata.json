@@ -1,0 +1,6 @@
+{
+  "name": "Luxury Gift Cards",
+  "description": "Premium digital ecommerce platform for gift cards with dark luxury theme, multi-language, full admin dashboard, secure payments, and instant code delivery.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
