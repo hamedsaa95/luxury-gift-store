@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cairo", "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Cairo", "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-luxury-black: #0B0B0B;
+  --color-luxury-gold: #D4AF37;
+  --color-luxury-purple: #8A2BE2;
+}
+
+/* Custom premium scrollbar and glass container designs */
+::-webkit-scrollbar {
+  width: 6.5px;
+  height: 6.5px;
+}
+::-webkit-scrollbar-track {
+  background: #060606;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #D4AF37 0%, #8A2BE2 100%);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8A2BE2;
+}
+
+/* Ultra-premium typography and card styling components */
+.luxury-text-gradient {
+  background: linear-gradient(135deg, #FFFFFF 20%, #E5C158 50%, #8A2BE2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 60px rgba(212, 175, 55, 0.15);
+}
+
+.luxury-ambient-bg {
+  background: radial-gradient(circle at 50% 12%, #180F30 0%, #060606 60%);
+}
+
+.premium-gold-glow {
+  box-shadow: 0 0 35px rgba(212, 175, 55, 0.12), inset 0 0 15px rgba(212, 175, 55, 0.05);
+}
+
+.premium-purple-glow {
+  box-shadow: 0 0 35px rgba(138, 43, 226, 0.15), inset 0 0 15px rgba(138, 43, 226, 0.05);
+}
+
+/* Intelligent neon animated gradient border */
+.neon-border-pulse {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.neon-border-pulse::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #D4AF37, #8A2BE2, #00C9A7);
+  background-size: 200% 200%;
+  animation: borderMoving 6s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.35;
+  transition: opacity 0.4s ease;
+}
+.neon-border-pulse:hover::after {
+  opacity: 1;
+}
+
+@keyframes borderMoving {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Luxury animations and transitions */
+.hover-gold-text {
+  transition: color 0.3s ease;
+}
+.hover-gold-text:hover {
+  color: #D4AF37;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
